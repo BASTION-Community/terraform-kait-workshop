@@ -1,0 +1,22 @@
+# =============================================================================
+# Outputs
+# =============================================================================
+output "vpc_id" {
+  description = "VPC ID"
+  value       = module.vpc.vpc_id
+}
+
+output "vpc_cidr_block" {
+  description = "VPC CIDR block"
+  value       = module.vpc.vpc_cidr_block
+}
+
+output "public_subnet_id" {
+  description = "Public Subnet ID"
+  value       = module.vpc.public_subnet_id
+}
+
+output "internet_gateway_id" {
+  description = "Internet Gateway ID"
+  value       = module.vpc.internet_gateway_id
+}
