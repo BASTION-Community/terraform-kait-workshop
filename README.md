@@ -10,12 +10,12 @@ graph LR
 
 ## 사전 준비
 
-| 항목 | 요구사항 |
-|---|---|
-| AWS 계정 | IAM 사용자, VPC 생성 권한 |
-| Terraform CLI | v1.0 이상 |
+| 항목 | 요구사항                            |
+|---|---------------------------------|
+| AWS 계정 | IAM 사용자, VPC 생성 권한              |
+| Terraform CLI | v1.0 이상                         |
 | Terraform Cloud | Organization 설정 필요 (backend.tf) |
-| 코드 에디터 | VS Code 권장 |
+| 코드 에디터 | VS Code 또는 Webstorm 권장          |
 
 ```bash
 git clone <repository-url>
@@ -171,23 +171,23 @@ terraform init && terraform plan && terraform apply
 
 ```mermaid
 graph TD
-    ORG["meiko_Org"]
+    ORG["Organization"]
 
     subgraph DEFAULT["Default Project"]
-        WS1["kait-terraform<br>step1, step2 공용"]
-        WS2["kait-terraform-dev<br>step3 dev"]
-        WS3["kait-terraform-stg<br>step3 stg"]
+        WS1["step1-workspace<br>step1, step2 공용"]
+        WS2["step2-workspace<br>step3 dev"]
+        WS3["step3-workspace<br>step3 stg"]
     end
 
     ORG --> DEFAULT
 ```
 
-| Step | Workspace | Working Directory |
-|---|---|---|
-| step1 | kait-terraform | `step1-single-file` |
-| step2 | kait-terraform | `step2-module` |
-| step3/dev | kait-terraform-dev | `step3-environments/environments/dev` |
-| step3/stg | kait-terraform-stg | `step3-environments/environments/stg` |
+| Step | Workspace           | Working Directory |
+|---|---------------------|---|
+| step1 | step1-workspace     | `step1-single-file` |
+| step2 | step2-workspace     | `step2-module` |
+| step3/dev | step3-workspace-dev | `step3-environments/environments/dev` |
+| step3/stg | step3-workspace-stg | `step3-environments/environments/stg` |
 
 > step1/2는 같은 workspace를 사용하므로 **반드시 destroy 후 다음 step으로** 진행합니다.
 
